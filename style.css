@@ -86,6 +86,7 @@ nav .nav-links .signup {
   overflow: hidden;
 }
 
+/* START OF HERO SECTION STYLING */
 .hero {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,6 +125,86 @@ nav .nav-links .signup {
   outline: none;
 }
 
+/* END OF HERO SECTION STYLING */
+/* START OF SHORTENER SECTION STYLING */
+.shortener {
+  width: 100%;
+  padding: 1rem;
+  background-color: #9e9aa7;
+  position: relative;
+  margin-top: 100px;
+}
+
+.shortener .input {
+  position: relative;
+  top: -100px;
+  margin: 1rem auto -50px;
+  width: 100%;
+  background-color: #3b3054;
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.shortener .input input {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  background-color: #bfbfbf;
+  outline: none;
+  border: none;
+}
+
+.shortener .input button {
+  width: 100%;
+  color: white;
+  background-color: #2acfcf;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 10px;
+  font-size: 18px;
+}
+
+.shortener {
+  width: 100vw;
+}
+
+.shortener .shortened {
+  border: 2px solid red;
+  padding: 1rem 0px;
+  background-color: white;
+  margin-bottom: 15px;
+}
+
+.shortener .shortened h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #232127;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.shortener .shortened hr {
+  height: 2px;
+  border: 1px solid #bfbfbf;
+  margin: 10px 0px;
+}
+
+.shortener .shortened .shorten-link {
+  color: #2acfcf;
+}
+
+.shortener .shortened button {
+  color: white;
+  background-color: #2acfcf;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 10px;
+  margin: 15px 1rem;
+  font-size: 18px;
+}
+
+/* END OF SHORTENER SECTION STYLING */
 @media screen and (max-width: 799px) {
   .nav-links {
     border-radius: 15px;
@@ -188,6 +269,9 @@ nav .nav-links .signup {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .shortened button {
+    width: 90%;
   }
 }
 
@@ -274,6 +358,44 @@ nav .nav-links .signup {
   }
   .hero div button {
     margin-top: auto;
+  }
+  .shortener .input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 25px;
+    height: 150px;
+    width: 95%;
+    margin: 0px auto -55px;
+  }
+  .shortener .input input {
+    width: 70%;
+    margin: 0px;
+  }
+  .shortener .input button {
+    width: 25%;
+  }
+  .shortener .shortened {
+    width: 95%;
+    margin: 0px auto 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0.2rem;
+  }
+  .shortener .shortened .shorten-link {
+    margin-left: auto;
+  }
+  .shortener .shortened button {
+    padding: 15px 20px;
   }
 }
 /*# sourceMappingURL=style.css.map */
