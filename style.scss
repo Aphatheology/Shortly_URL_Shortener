@@ -15,6 +15,9 @@ $font-size: 18px;
     padding: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -85,6 +88,41 @@ nav {
     overflow: hidden;
 }
 
+// START OF HERO SECTION STYLING
+.hero {
+    display: flex;
+    width: 95vw;
+    margin: 10px auto;
+    img {
+        width: 95%;
+        inline-size: auto;
+    }
+    div {
+        width: 95%;
+        margin: 15px auto;
+        text-align: center;
+        h2 {
+            margin: 10px auto;
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+        button {
+            color: white;
+            background-color: $pri-cyan;
+            border-radius: 50px;
+            width: 50%;
+            margin-top: 15px;
+            padding: 15px;
+            font-weight: 700;
+            font-size: $font-size;
+            border: none;
+            outline: none;
+        }
+    }
+}
+
+// END OF HERO SECTION STYLING
+
 @media screen and (max-width: 799px) {
     .nav-links {
         border-radius: 15px;
@@ -127,15 +165,20 @@ nav {
             }
         }
     }
+
+    .hero {
+        flex-direction: column;
+    }
 }
 
 .show-links {
     height: 20rem;
 }
 
+
 @media screen and (min-width: 800px) {
     nav {
-        max-width: 1170px;
+        width: 95vw;
         margin: 0px auto;
         display: flex;
         // justify-content: space-between;
@@ -170,5 +213,31 @@ nav {
 
     .nav-buttons {
         margin-left: auto;
+    }
+
+    .hero {
+        flex-direction: row-reverse;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        img {
+            width: 50%;
+        }
+        div {
+            width: 40%;
+            min-height: 300px;
+            text-align: left;
+            margin: 25px 0px;
+            padding: 1rem 1rem 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+
+            p {
+                font-size: 14px;
+                margin: 10px auto;
+            }
+            button {
+                margin-top: auto;
+            }
+        }
     }
 }

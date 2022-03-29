@@ -6,6 +6,10 @@
   padding: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
@@ -82,6 +86,44 @@ nav .nav-links .signup {
   overflow: hidden;
 }
 
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 95vw;
+  margin: 10px auto;
+}
+
+.hero img {
+  width: 95%;
+  inline-size: auto;
+}
+
+.hero div {
+  width: 95%;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.hero div h2 {
+  margin: 10px auto;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.hero div button {
+  color: white;
+  background-color: #2acfcf;
+  border-radius: 50px;
+  width: 50%;
+  margin-top: 15px;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  outline: none;
+}
+
 @media screen and (max-width: 799px) {
   .nav-links {
     border-radius: 15px;
@@ -141,6 +183,12 @@ nav .nav-links .signup {
     width: 90%;
     margin: 0px auto 10px;
   }
+  .hero {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .show-links {
@@ -149,7 +197,7 @@ nav .nav-links .signup {
 
 @media screen and (min-width: 800px) {
   nav {
-    max-width: 1170px;
+    width: 95vw;
     margin: 0px auto;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -191,6 +239,41 @@ nav .nav-links .signup {
   }
   .nav-buttons {
     margin-left: auto;
+  }
+  .hero {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .hero img {
+    width: 50%;
+  }
+  .hero div {
+    width: 40%;
+    min-height: 300px;
+    text-align: left;
+    margin: 25px 0px;
+    padding: 1rem 1rem 1rem 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .hero div p {
+    font-size: 14px;
+    margin: 10px auto;
+  }
+  .hero div button {
+    margin-top: auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
