@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://kit.fontawesome.com/d0bc77ca84.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   
   <title>Shortly URL shortening API Challenge</title>
@@ -18,17 +19,41 @@
 <body>
 
   <header>
-    <div class="logo">
-      <img src="images/logo.svg" alt="Shorly Logo">
-    </div>
+    <nav>
+      <div class="logo">
+        <img src="images/logo.svg" alt="Shorly Logo">
+  
+        <button class="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="nav-links">
+        <ul>
+          <li>
+            <a href="">Features</a>
+          </li>
+          <li>
+            <a href="">Pricing</a>
+          </li>
+          <li>
+            <a href="">Resources</a>
+          </li>
+        </ul>        
+
+        <div class="nav-buttons">
+          <button class="login">Login</button>
+          <button class="signup">Sign Up</button>
+        </div>
+      </dvi>
+      
+
+      
+    </nav>
+    
+
+
   </header>
-
-  Features
-  Pricing
-  Resources
-
-  Login
-  Sign Up
 
   More than just shorter links
 
@@ -88,5 +113,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

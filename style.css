@@ -1,7 +1,196 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
-  background-color: #2acfcf;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
+}
+
+nav .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+
+nav .logo .nav-toggle {
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  color: #bfbfbf;
+}
+
+nav .logo .nav-toggle:hover {
+  color: #9e9aa7;
+}
+
+nav .nav-links {
+  font-weight: bold;
+}
+
+nav .nav-links ul {
+  list-style-type: none;
+}
+
+nav .nav-links a {
+  text-transform: capitalize;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #9e9aa7;
+  margin: 2.5px auto;
+}
+
+nav .nav-links a:hover {
+  text-decoration: underline;
+}
+
+nav .nav-links button {
+  border: none;
+  padding: 10px 0px;
+  font-size: 18px;
+  margin-left: 15px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+nav .nav-links button:hover {
+  border-bottom: 2px solid #bfbfbf;
+}
+
+nav .nav-links .signup {
+  border-radius: 50px;
+  padding: 10px 15px;
+  background-color: #2acfcf;
+  color: white;
+}
+
+.nav-links {
+  height: 0px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 799px) {
+  .nav-links {
+    border-radius: 15px;
+    margin: 0px 1rem;
+    background-color: #35323e;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-weight: 700;
+    color: white;
+  }
+  .nav-links ul {
+    text-align: center;
+  }
+  .nav-links ul a {
+    color: white;
+  }
+  .nav-links .nav-buttons {
+    width: 90%;
+    margin: 5px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nav-links .nav-buttons::before {
+    content: '';
+    border: 1px solid #bfbfbf;
+    width: 75%;
+    margin: 0px auto 10px;
+  }
+  .nav-links .nav-buttons button {
+    margin-bottom: 10px;
+    margin-left: 0px;
+    color: white;
+  }
+  .nav-links .nav-buttons .signup {
+    width: 90%;
+    margin: 0px auto 10px;
+  }
+}
+
+.show-links {
+  height: 20rem;
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    max-width: 1170px;
+    margin: 0px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .nav-links {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+    margin-left: 25px;
+  }
+  .nav-links ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    list-style-type: none;
+  }
+  .nav-links a {
+    padding: 0;
+    margin: 0 0,5rem;
+  }
+  .nav-buttons {
+    margin-left: auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */
