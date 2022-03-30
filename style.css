@@ -253,6 +253,45 @@ nav .nav-links .signup {
 }
 
 /* END OF SHORTENER SECTION STYLING */
+/* START OF BOOST LINK SECTION STYLING */
+.boost {
+  background-image: url("images/bg-boost-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #35323e;
+  width: 100%;
+  min-height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 25px;
+  padding: 25px;
+  color: white;
+}
+
+.boost button {
+  color: white;
+  background-color: #2acfcf;
+  border: none;
+  border-radius: 50px;
+  padding: 25px;
+  margin: 15px 1rem;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* END OF BOOST LINK SECTION STYLING */
 @media screen and (max-width: 799px) {
   .nav-links {
     border-radius: 15px;
@@ -342,6 +381,9 @@ nav .nav-links .signup {
   }
   :before {
     bottom: 100%;
+  }
+  .boost button {
+    width: 50%;
   }
 }
 
@@ -466,6 +508,13 @@ nav .nav-links .signup {
   }
   .shortener .shortened button {
     padding: 15px 20px;
+  }
+  .boost {
+    background-image: url("images/bg-boost-desktop.svg");
+    border: 1px solid red;
+  }
+  .boost button {
+    padding: 25px 40px;
   }
 }
 
