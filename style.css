@@ -15,6 +15,10 @@ body {
   font-size: 18px;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -552,7 +556,8 @@ footer .social-icons {
     margin: 10px auto;
   }
   .hero div button {
-    margin-top: auto;
+    margin-top: 50px;
+    min-width: 150px;
   }
   .shortener .input {
     display: -webkit-box;
@@ -610,8 +615,8 @@ footer .social-icons {
         -ms-flex-align: start;
             align-items: flex-start;
     text-align: left;
-    -webkit-column-gap: 20px;
-            column-gap: 20px;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
     padding: 5rem 8rem 0rem;
   }
   footer :first-child {
