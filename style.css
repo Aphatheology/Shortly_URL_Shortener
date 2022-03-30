@@ -128,7 +128,7 @@ nav .nav-links .signup {
 /* END OF HERO SECTION STYLING */
 /* START OF SHORTENER SECTION STYLING */
 .shortener {
-  width: 100%;
+  width: 100vw;
   padding: 1rem;
   background-color: #9e9aa7;
   position: relative;
@@ -166,11 +166,10 @@ nav .nav-links .signup {
 }
 
 .shortener {
-  width: 100vw;
+  width: 100%;
 }
 
 .shortener .shortened {
-  border: 2px solid red;
   padding: 1rem 0px;
   background-color: white;
   margin-bottom: 15px;
@@ -182,6 +181,9 @@ nav .nav-links .signup {
   color: #232127;
   padding-left: 1rem;
   padding-right: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .shortener .shortened hr {
@@ -202,6 +204,52 @@ nav .nav-links .signup {
   padding: 15px 10px;
   margin: 15px 1rem;
   font-size: 18px;
+}
+
+.shortener .stat {
+  padding: 1rem 0px;
+  text-align: center;
+  width: 95%;
+  margin: 0px auto;
+}
+
+.shortener .stat p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+.shortener .linked-option {
+  margin-top: 60px;
+}
+
+.shortener .option {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 75px;
+  position: relative;
+}
+
+.shortener .option .option-img {
+  width: 75px;
+  height: 75px;
+  margin: -53px auto 0px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #35323e;
+}
+
+.shortener .option .option-img img {
+  width: 50px;
+  height: 50px;
 }
 
 /* END OF SHORTENER SECTION STYLING */
@@ -272,6 +320,28 @@ nav .nav-links .signup {
   }
   .shortened button {
     width: 90%;
+  }
+  .option:nth-child(2):after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    display: block;
+    border-top: 50px solid #2acfcf;
+    width: 5px;
+  }
+  .option:nth-child(1):after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    display: block;
+    border-top: 50px solid #2acfcf;
+    width: 5px;
+  }
+  :after {
+    top: 100%;
+  }
+  :before {
+    bottom: 100%;
   }
 }
 
@@ -396,6 +466,87 @@ nav .nav-links .signup {
   }
   .shortener .shortened button {
     padding: 15px 20px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  .option:nth-child(2):after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    display: block;
+    border-top: 50px solid #2acfcf;
+    width: 5px;
+  }
+  .option:nth-child(1):after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    display: block;
+    border-top: 50px solid #2acfcf;
+    width: 5px;
+  }
+  :after {
+    top: 100%;
+  }
+  :before {
+    bottom: 100%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .stat .linked-option {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    margin-top: 70px;
+  }
+  .stat .linked-option .option {
+    position: relative;
+    margin-bottom: 0px;
+    text-align: left;
+    padding: 20px;
+  }
+  .stat .linked-option .option .option-img {
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+  .shortener .stat .linked-option {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+  .option:nth-child(1) {
+    z-index: 20;
+  }
+  .option:nth-child(2):before,
+  .option:nth-child(2):after {
+    content: '';
+    width: 35px;
+    border-bottom: 5px solid #2acfcf;
+    position: absolute;
+    top: 50%;
+  }
+  :after {
+    left: 100%;
+  }
+  :before {
+    right: 100%;
+  }
+  .option:nth-child(2) {
+    margin-top: 40px;
+  }
+  .option:nth-child(3) {
+    margin-top: 80px;
   }
 }
 /*# sourceMappingURL=style.css.map */
