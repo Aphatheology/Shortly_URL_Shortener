@@ -178,6 +178,7 @@ nav {
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+            
         }
         hr {
             height: 2px;
@@ -197,6 +198,11 @@ nav {
             font-size: $font-size;
         }
     }
+}
+
+.shortener .shortened .shorten-link .shorten-link-a {
+    color: $neu-dark-violet;
+    text-decoration: none;
 }
 
 .shortener {
