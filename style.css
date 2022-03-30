@@ -257,8 +257,7 @@ nav .nav-links .signup {
 .boost {
   background-image: url("images/bg-boost-mobile.svg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-color: #35323e;
   width: 100%;
   min-height: 250px;
@@ -292,6 +291,87 @@ nav .nav-links .signup {
 }
 
 /* END OF BOOST LINK SECTION STYLING */
+/* START OF FOOTER SECTION STYLING */
+footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px 30px;
+  background-color: #232127;
+  fill: white;
+  text-align: center;
+}
+
+footer div {
+  margin-bottom: 25px;
+  color: white;
+}
+
+footer div h3 {
+  margin-bottom: 25px;
+}
+
+footer ul {
+  list-style-type: none;
+}
+
+footer ul li {
+  margin-bottom: 15px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #bfbfbf;
+}
+
+footer ul li a:hover {
+  color: #2acfcf;
+}
+
+footer .social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* END OF FOOTER SECTION STYLING */
+.attribution {
+  font-size: 14px;
+  text-align: center;
+  background-color: #232127;
+  padding-bottom: 25px;
+  color: #bfbfbf;
+}
+
+.attribution a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 799px) {
   .nav-links {
     border-radius: 15px;
@@ -381,6 +461,9 @@ nav .nav-links .signup {
   }
   :before {
     bottom: 100%;
+  }
+  .boost {
+    height: 400px;
   }
   .boost button {
     width: 50%;
@@ -511,10 +594,39 @@ nav .nav-links .signup {
   }
   .boost {
     background-image: url("images/bg-boost-desktop.svg");
-    border: 1px solid red;
   }
   .boost button {
     padding: 25px 40px;
+  }
+  footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    text-align: left;
+    -webkit-column-gap: 20px;
+            column-gap: 20px;
+    padding: 5rem 8rem 0rem;
+  }
+  footer :first-child {
+    width: 30%;
+  }
+  footer :first-child img {
+    width: 50%;
+  }
+  footer .social-icons a {
+    display: block;
+    padding-top: 10px;
+  }
+  footer .social-icons a img {
+    width: 20px;
+    height: 20px;
   }
 }
 
