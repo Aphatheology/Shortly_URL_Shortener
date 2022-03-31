@@ -36,7 +36,6 @@ shortItBtn.addEventListener('click' , () => {
       console.log('false')
     } else {
 	  shortUrl(inputUrl.value)
-
     }
   }
 })

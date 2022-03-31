@@ -153,10 +153,16 @@ nav .nav-links .signup {
   width: 100%;
   padding: 15px 10px;
   font-size: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   background-color: #bfbfbf;
   outline: none;
   border: none;
+  border-radius: 10px;
+}
+
+.shortener .input span {
+  color: red;
+  display: none;
 }
 
 .shortener .input button {
@@ -166,7 +172,12 @@ nav .nav-links .signup {
   border: none;
   border-radius: 10px;
   padding: 15px 10px;
+  margin-top: 20px;
   font-size: 18px;
+}
+
+.shortener .input .input-error {
+  border: 2px solid red;
 }
 
 .shortener {
@@ -573,6 +584,8 @@ footer .social-icons {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 25px;
     height: 150px;
     width: 95%;
@@ -582,8 +595,16 @@ footer .social-icons {
     width: 70%;
     margin: 0px;
   }
+  .shortener .input span {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-right: auto;
+    padding-left: 10px;
+  }
   .shortener .input button {
     width: 25%;
+    margin: 0;
   }
   .shortener .shortened {
     width: 95%;
