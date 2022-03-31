@@ -59,9 +59,6 @@ shortItBtn.addEventListener('click' , () => {
             inputUrl.classList.remove('input-error')
             
         }
-		// shortUrl(inputUrl.value);
-		// errorSpan.style.visibility = 'hidden';
-		// inputUrl.classList.remove('input-error')
     }
   }
   if (shortenLinksInput.length >= 3) {
@@ -104,46 +101,6 @@ async function shortUrl(url) {
         localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
         inputUrl.value = '';
 
-
-		// if (duplicateUrl.includes(saveUrl.input)) {
-		// 	errorSpan.innerHTML = "You've shorten this link before";
-		// 	errorSpan.style.visibility = 'visible';
-		// } else {
-		// 	duplicateUrl.push(saveUrl.input)
-		// 	let newLinkDiv = document.createElement('div');
-		// 	newLinkDiv.classList.add('shortened');
-		// 	newLinkDiv.innerHTML = `
-		// 	<h4 class="input-link">${inputUrl.value}</h4>
-		// 	<hr>
-		// 	<h4 class="shorten-link">
-		// 		${data.result.short_link2}
-		// 	</h4>
-		// 	<button>Copy</button>
-		// 	`;
-		// 	allLinksDiv.appendChild(newLinkDiv);
-		// 	shortenLinksInput.push(saveUrl);
-		// 	localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
-		// 	inputUrl.value = '';
-			
-		// // let newLinkDiv = document.createElement('div');
-		// // newLinkDiv.classList.add('shortened');
-		// // newLinkDiv.innerHTML = `
-		// // <h4 class="input-link">${inputUrl.value}</h4>
-		// // <hr>
-		// // <h4 class="shorten-link">
-		// // 	${data.result.short_link2}
-		// // </h4>
-		// // <button>Copy</button>
-		// // `;
-		// // allLinksDiv.appendChild(newLinkDiv);
-		// // let saveUrl = {
-		// // 	'input': inputUrl.value,
-		// // 	'url': data.result.short_link2
-		// }
-		
-		
-		
-
 		
 	} else {
 		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
@@ -158,14 +115,3 @@ clearItBtn.addEventListener('click' , () => {
     allLinksDiv.innerHTML = '';
     duplicateUrl = [];
 })
-
-// window.addEventListener('load' , () => {
-// 	let url = 'https://aphatheology.github.io/Shortly_URL_Shortener';
-// 	const response = fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
-// 	const data = response.json();
-// 	console.log(data.result.short_link2)
-	
-// })
-// if (shortenLinksInput.length >= 3) {
-//     clearItBtn.style.visibility = 'visible';
-// }
