@@ -210,6 +210,11 @@ nav .nav-links .signup {
   font-size: 18px;
 }
 
+.shortener .shortened .shorten-link .shorten-link-a {
+  color: #232127;
+  text-decoration: none;
+}
+
 .shortener .stat {
   padding: 1rem 0px;
   text-align: center;
