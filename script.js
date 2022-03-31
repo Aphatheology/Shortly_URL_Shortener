@@ -31,15 +31,18 @@ if (localStorage.getItem('storedLinksInput') !== null) {
 
 shortItBtn.addEventListener('click' , () => {
   if(inputUrl.value == '' || inputUrl.value === 0) {
-	errorSpan.innerHTML = 'Please add a link!'
-    errorSpan.style.visibility = 'visible'
+		errorSpan.innerHTML = 'Please add a link!'
+		errorSpan.style.visibility = 'visible'
+		inputUrl.classList.add('input-error')
   } else {
     if (!isValidURL(inputUrl.value)) {
-      errorSpan.innerHTML = "This is not a valid URL!"
+		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
+		errorSpan.style.visibility = 'visible';
+	  	inputUrl.classList.add('input-error')
     } else {
-	  shortUrl(inputUrl.value);
-	  errorSpan.style.visibility = 'hidden';
-	
+		shortUrl(inputUrl.value);
+		errorSpan.style.visibility = 'hidden';
+		inputUrl.classList.remove('input-error')
     }
   }
 })
@@ -75,7 +78,9 @@ async function shortUrl(url) {
 		localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
 		inputUrl.value = '';
 	} else {
-		console.log('invalid link')
+		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
+    	errorSpan.style.visibility = 'visible';
+		inputUrl.classList.add('input-error');
 	}
   }  
 
