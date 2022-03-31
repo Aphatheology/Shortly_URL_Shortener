@@ -72,10 +72,11 @@ nav .nav-links button {
   margin-left: 15px;
   font-weight: bold;
   background-color: transparent;
+  border-bottom: 2px solid transparent;
 }
 
 nav .nav-links button:hover {
-  border-bottom: 2px solid #bfbfbf;
+  border-bottom: 2px solid #f46262;
 }
 
 nav .nav-links .signup {
@@ -83,6 +84,11 @@ nav .nav-links .signup {
   padding: 10px 15px;
   background-color: #2acfcf;
   color: white;
+  border: 2px solid transparent;
+}
+
+nav .nav-links .signup:hover {
+  border: 2px solid #f46262;
 }
 
 .nav-links {
@@ -161,7 +167,7 @@ nav .nav-links .signup {
 }
 
 .shortener .input span {
-  color: red;
+  color: #f46262;
   visibility: hidden;
 }
 
@@ -177,7 +183,7 @@ nav .nav-links .signup {
 }
 
 .shortener .input .input-error {
-  border: 2px solid red;
+  border: 2px solid #f46262;
 }
 
 .shortener {
