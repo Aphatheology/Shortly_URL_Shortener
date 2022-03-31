@@ -227,12 +227,24 @@ nav .nav-links .signup:hover {
   font-size: 18px;
 }
 
+button.clearit {
+  color: white;
+  background-color: #2acfcf;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  float: right;
+  font-size: 18px;
+  visibility: hidden;
+}
+
 .shortener .shortened .shorten-link .shorten-link-a {
   color: #232127;
   text-decoration: none;
 }
 
 .shortener .stat {
+  clear: both;
   padding: 1rem 0px;
   text-align: center;
   width: 95%;
@@ -611,6 +623,9 @@ footer .social-icons {
   .shortener .input button {
     width: 25%;
     margin: 0;
+  }
+  button.clearit {
+    margin-right: 30px;
   }
   .shortener .shortened {
     width: 95%;

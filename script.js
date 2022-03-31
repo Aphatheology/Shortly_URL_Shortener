@@ -4,12 +4,19 @@ const inputUrl = document.querySelector('.input-url');
 const shortItBtn = document.querySelector('.shortit');
 const allLinksDiv = document.querySelector('.about-links');
 const errorSpan = document.querySelector('.error');
+const clearItBtn = document.querySelector('.clearit');
 
 navToggle.addEventListener("click", function () {
   links.classList.toggle("show-links");
 });
-
+let duplicateUrl = [];
 const localStorageUrl = JSON.parse(localStorage.getItem('storedLinksInput'));
+
+if (localStorage.getItem('storedLinksInput') !== null) {
+    for (let i = 0; i < localStorageUrl.length; i++) {
+        duplicateUrl.push(localStorageUrl[i].input);
+    }
+} 
 
 let shortenLinksInput = localStorage.getItem('storedLinksInput') !== null ? localStorageUrl : [];
 
@@ -40,11 +47,28 @@ shortItBtn.addEventListener('click' , () => {
 		errorSpan.style.visibility = 'visible';
 	  	inputUrl.classList.add('input-error')
     } else {
-		shortUrl(inputUrl.value);
-		errorSpan.style.visibility = 'hidden';
-		inputUrl.classList.remove('input-error')
+        let saveUrl = {
+			'input': inputUrl.value
+		}
+		if (duplicateUrl.includes(saveUrl.input)) {
+			errorSpan.innerHTML = "You've shorten this link before";
+			errorSpan.style.visibility = 'visible';
+		} else {
+            shortUrl(inputUrl.value);
+            errorSpan.style.visibility = 'hidden';
+            inputUrl.classList.remove('input-error')
+            
+        }
+		// shortUrl(inputUrl.value);
+		// errorSpan.style.visibility = 'hidden';
+		// inputUrl.classList.remove('input-error')
     }
   }
+  if (shortenLinksInput.length >= 3) {
+    clearItBtn.style.visibility = 'visible';
+} else {
+    clearItBtn.style.visibility = 'hidden';
+}
 })
 
 function isValidURL(url) {
@@ -52,37 +76,88 @@ function isValidURL(url) {
   return (res !== null)
 };
 
+
 async function shortUrl(url) {
 		
 	const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await response.json();
 	if(data.ok === true) {
-		let newLinkDiv = document.createElement('div');
-		newLinkDiv.classList.add('shortened');
-		newLinkDiv.innerHTML = `
-		<h4 class="input-link">${inputUrl.value}</h4>
-		<hr>
-		<h4 class="shorten-link">
-			${data.result.short_link2}
-		</h4>
-		<button>Copy</button>
-		`;
-		allLinksDiv.appendChild(newLinkDiv);
 		let saveUrl = {
 			'input': inputUrl.value,
 			'url': data.result.short_link2
 		}
-		
-		shortenLinksInput.push(saveUrl);
+        duplicateUrl.push(saveUrl.input)
+        let newLinkDiv = document.createElement('div');
+        newLinkDiv.classList.add('shortened');
+        newLinkDiv.innerHTML = `
+        <h4 class="input-link">${inputUrl.value}</h4>
+        <hr>
+        <h4 class="shorten-link">
+            ${data.result.short_link2}
+        </h4>
+        <button>Copy</button>
+        `;
+        allLinksDiv.appendChild(newLinkDiv);
+        
+        shortenLinksInput.push(saveUrl);
+        
+        localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
+        inputUrl.value = '';
 
-		localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
-		inputUrl.value = '';
+
+		// if (duplicateUrl.includes(saveUrl.input)) {
+		// 	errorSpan.innerHTML = "You've shorten this link before";
+		// 	errorSpan.style.visibility = 'visible';
+		// } else {
+		// 	duplicateUrl.push(saveUrl.input)
+		// 	let newLinkDiv = document.createElement('div');
+		// 	newLinkDiv.classList.add('shortened');
+		// 	newLinkDiv.innerHTML = `
+		// 	<h4 class="input-link">${inputUrl.value}</h4>
+		// 	<hr>
+		// 	<h4 class="shorten-link">
+		// 		${data.result.short_link2}
+		// 	</h4>
+		// 	<button>Copy</button>
+		// 	`;
+		// 	allLinksDiv.appendChild(newLinkDiv);
+		// 	shortenLinksInput.push(saveUrl);
+		// 	localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
+		// 	inputUrl.value = '';
+			
+		// // let newLinkDiv = document.createElement('div');
+		// // newLinkDiv.classList.add('shortened');
+		// // newLinkDiv.innerHTML = `
+		// // <h4 class="input-link">${inputUrl.value}</h4>
+		// // <hr>
+		// // <h4 class="shorten-link">
+		// // 	${data.result.short_link2}
+		// // </h4>
+		// // <button>Copy</button>
+		// // `;
+		// // allLinksDiv.appendChild(newLinkDiv);
+		// // let saveUrl = {
+		// // 	'input': inputUrl.value,
+		// // 	'url': data.result.short_link2
+		// }
+		
+		
+		
+
+		
 	} else {
 		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
     	errorSpan.style.visibility = 'visible';
 		inputUrl.classList.add('input-error');
 	}
   }  
+
+
+clearItBtn.addEventListener('click' , () => {
+    localStorage.clear('storedLinksInput');
+    allLinksDiv.innerHTML = '';
+    duplicateUrl = [];
+})
 
 // window.addEventListener('load' , () => {
 // 	let url = 'https://aphatheology.github.io/Shortly_URL_Shortener';
@@ -91,3 +166,6 @@ async function shortUrl(url) {
 // 	console.log(data.result.short_link2)
 	
 // })
+// if (shortenLinksInput.length >= 3) {
+//     clearItBtn.style.visibility = 'visible';
+// }
