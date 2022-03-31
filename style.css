@@ -162,7 +162,7 @@ nav .nav-links .signup {
 
 .shortener .input span {
   color: red;
-  display: none;
+  visibility: hidden;
 }
 
 .shortener .input button {

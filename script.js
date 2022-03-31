@@ -3,6 +3,7 @@ const links = document.querySelector(".nav-links");
 const inputUrl = document.querySelector('.input-url');
 const shortItBtn = document.querySelector('.shortit');
 const allLinksDiv = document.querySelector('.about-links');
+const errorSpan = document.querySelector('.error');
 
 navToggle.addEventListener("click", function () {
   links.classList.toggle("show-links");
@@ -30,12 +31,15 @@ if (localStorage.getItem('storedLinksInput') !== null) {
 
 shortItBtn.addEventListener('click' , () => {
   if(inputUrl.value == '' || inputUrl.value === 0) {
-    console.log('enter valid url')
+	errorSpan.innerHTML = 'Please add a link!'
+    errorSpan.style.visibility = 'visible'
   } else {
     if (!isValidURL(inputUrl.value)) {
-      console.log('false')
+      errorSpan.innerHTML = "This is not a valid URL!"
     } else {
-	  shortUrl(inputUrl.value)
+	  shortUrl(inputUrl.value);
+	  errorSpan.style.visibility = 'hidden';
+	
     }
   }
 })
@@ -49,7 +53,6 @@ async function shortUrl(url) {
 		
 	const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await response.json();
-
 	if(data.ok === true) {
 		let newLinkDiv = document.createElement('div');
 		newLinkDiv.classList.add('shortened');
@@ -74,8 +77,12 @@ async function shortUrl(url) {
 	} else {
 		console.log('invalid link')
 	}
-  }
+  }  
 
-  const checkDiv = JSON.parse(localStorage.getItem('storedLinksInput'));
-
-  
+// window.addEventListener('load' , () => {
+// 	let url = 'https://aphatheology.github.io/Shortly_URL_Shortener';
+// 	const response = fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
+// 	const data = response.json();
+// 	console.log(data.result.short_link2)
+	
+// })
