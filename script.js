@@ -9,7 +9,9 @@ const clearItBtn = document.querySelector('.clearit');
 navToggle.addEventListener("click", function () {
   links.classList.toggle("show-links");
 });
+
 let duplicateUrl = [];
+
 const localStorageUrl = JSON.parse(localStorage.getItem('storedLinksInput'));
 
 if (localStorage.getItem('storedLinksInput') !== null) {
@@ -19,6 +21,12 @@ if (localStorage.getItem('storedLinksInput') !== null) {
 } 
 
 let shortenLinksInput = localStorage.getItem('storedLinksInput') !== null ? localStorageUrl : [];
+
+if (localStorage.getItem('storedLinksInput') !== null && shortenLinksInput.length >= 3) {
+    clearItBtn.style.visibility = 'visible';
+} else {
+    clearItBtn.style.visibility = 'hidden';
+}
 
 if (localStorage.getItem('storedLinksInput') !== null) {
 	for(let i = 0; i < localStorageUrl.length; i++) {
@@ -41,31 +49,27 @@ shortItBtn.addEventListener('click' , () => {
 		errorSpan.innerHTML = 'Please add a link!'
 		errorSpan.style.visibility = 'visible'
 		inputUrl.classList.add('input-error')
-  } else {
-    if (!isValidURL(inputUrl.value)) {
-		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
-		errorSpan.style.visibility = 'visible';
-	  	inputUrl.classList.add('input-error')
-    } else {
-        let saveUrl = {
-			'input': inputUrl.value
-		}
-		if (duplicateUrl.includes(saveUrl.input)) {
-			errorSpan.innerHTML = "You've shorten this link before";
+} 	else {
+		if (!isValidURL(inputUrl.value)) {
+			errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
 			errorSpan.style.visibility = 'visible';
-		} else {
-            shortUrl(inputUrl.value);
-            errorSpan.style.visibility = 'hidden';
-            inputUrl.classList.remove('input-error')
-            
-        }
-    }
+			inputUrl.classList.add('input-error')
+		} 	else {
+				let saveUrl = {
+					'input': inputUrl.value
+				}
+				if (duplicateUrl.includes(saveUrl.input)) {
+					errorSpan.innerHTML = "You've shorten this link before";
+					errorSpan.style.visibility = 'visible';
+				} else {
+					shortUrl(inputUrl.value);
+					errorSpan.style.visibility = 'hidden';
+					inputUrl.classList.remove('input-error')
+					
+				}
+		}
   }
-  if (shortenLinksInput.length >= 3) {
-    clearItBtn.style.visibility = 'visible';
-} else {
-    clearItBtn.style.visibility = 'hidden';
-}
+
 })
 
 function isValidURL(url) {
@@ -97,7 +101,12 @@ async function shortUrl(url) {
         allLinksDiv.appendChild(newLinkDiv);
         
         shortenLinksInput.push(saveUrl);
-        
+		if (localStorage.getItem('storedLinksInput') !== null && shortenLinksInput.length >= 3) {
+			clearItBtn.style.visibility = 'visible';
+		} else {
+			clearItBtn.style.visibility = 'hidden';
+		}
+		
         localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
         inputUrl.value = '';
 
@@ -114,4 +123,10 @@ clearItBtn.addEventListener('click' , () => {
     localStorage.clear('storedLinksInput');
     allLinksDiv.innerHTML = '';
     duplicateUrl = [];
+	// clearItBtn.style.visibility = 'hidden';
+	hideClearBtn()
 })
+
+function hideClearBtn() {
+	clearItBtn.style.visibility = 'hidden';
+}
