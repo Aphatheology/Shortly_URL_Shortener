@@ -44,6 +44,13 @@ if (localStorage.getItem('storedLinksInput') !== null) {
 	}
 }
 
+inputUrl.addEventListener("keyup", function(event) {
+	if (event.keyCode === 13) {
+	  	// event.preventDefault();
+	   	shortItBtn.click();
+	}
+});
+
 shortItBtn.addEventListener('click' , () => {
   if(inputUrl.value == '' || inputUrl.value === 0) {
 		errorSpan.innerHTML = 'Please add a link!'
