@@ -120,10 +120,11 @@ async function shortUrl(url) {
 
 
 clearItBtn.addEventListener('click' , () => {
-    localStorage.clear('storedLinksInput');
+    localStorage.clear();
     allLinksDiv.innerHTML = '';
     duplicateUrl = [];
-	// clearItBtn.style.visibility = 'hidden';
+	localStorage = [];
+	shortenLinksInput = [];
 	hideClearBtn()
 })
 
