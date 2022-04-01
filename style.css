@@ -227,6 +227,11 @@ nav .nav-links .signup:hover {
   font-size: 18px;
 }
 
+button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
 button.clearit {
   color: white;
   background-color: #2acfcf;

@@ -86,7 +86,7 @@ function isValidURL(url) {
 
 
 async function shortUrl(url) {
-		
+	shortItBtn.disabled = true;
 	const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await response.json();
 	if(data.ok === true) {
@@ -106,7 +106,7 @@ async function shortUrl(url) {
         <button>Copy</button>
         `;
         allLinksDiv.appendChild(newLinkDiv);
-        
+		shortItBtn.disabled = false;
         shortenLinksInput.push(saveUrl);
 		if (localStorage.getItem('storedLinksInput') !== null && shortenLinksInput.length >= 3) {
 			clearItBtn.style.visibility = 'visible';
@@ -122,6 +122,7 @@ async function shortUrl(url) {
 		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
     	errorSpan.style.visibility = 'visible';
 		inputUrl.classList.add('input-error');
+		shortItBtn.disabled = false;
 	}
   }  
 

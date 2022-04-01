@@ -216,6 +216,12 @@ nav {
     }
 }
 
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    
+}
+
 button.clearit {
     color: white;
     background-color: $pri-cyan;
