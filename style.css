@@ -515,6 +515,9 @@ footer .social-icons {
 
 .show-links {
   height: 20rem;
+  position: absolute;
+  width: 90vw;
+  margin-left: 5vw;
 }
 
 @media screen and (min-width: 800px) {

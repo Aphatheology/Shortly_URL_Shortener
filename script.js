@@ -5,6 +5,25 @@ const shortItBtn = document.querySelector('.shortit');
 const allLinksDiv = document.querySelector('.about-links');
 const errorSpan = document.querySelector('.error');
 const clearItBtn = document.querySelector('.clearit');
+let copyItBtn;
+let shortenLink;
+
+// Working - from stackoverflow, but execCommand is deprecated
+function copyURL() {
+	copyItBtn = document.querySelectorAll('.shortener .shortened button');
+	shortenLink = document.querySelectorAll('.shortened .shorten-link');
+	copyItBtn.forEach((button, index) => {
+        button.addEventListener('click', function(event) {
+            let inp = document.createElement('input');
+            document.body.appendChild(inp)
+            inp.value = shortenLink[index].innerText;
+            inp.select();
+            document.execCommand('copy', false);
+            inp.remove();
+        })
+    })
+}
+
 
 navToggle.addEventListener("click", function () {
   links.classList.toggle("show-links");
@@ -41,12 +60,12 @@ if (localStorage.getItem('storedLinksInput') !== null) {
 		<button>Copy</button>
 		`;
 		allLinksDiv.appendChild(newLinkDiv);
+		copyURL()
 	}
 }
 
 inputUrl.addEventListener("keyup", function(event) {
 	if (event.keyCode === 13) {
-	  	// event.preventDefault();
 	   	shortItBtn.click();
 	}
 });
@@ -79,6 +98,7 @@ shortItBtn.addEventListener('click' , () => {
 
 })
 
+// From Stackoverflow 
 function isValidURL(url) {
   let res = url.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
   return (res !== null)
@@ -87,6 +107,7 @@ function isValidURL(url) {
 
 async function shortUrl(url) {
 	shortItBtn.disabled = true;
+	shortItBtn.innerHTML = "Running...";
 	const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
 	const data = await response.json();
 	if(data.ok === true) {
@@ -95,9 +116,9 @@ async function shortUrl(url) {
 			'url': data.result.short_link2
 		}
         duplicateUrl.push(saveUrl.input)
-        let newLinkDiv = document.createElement('div');
-        newLinkDiv.classList.add('shortened');
-        newLinkDiv.innerHTML = `
+		let newLinkDiv = document.createElement('div');
+		newLinkDiv.classList.add('shortened');
+		newLinkDiv.innerHTML = `
         <h4 class="input-link">${inputUrl.value}</h4>
         <hr>
         <h4 class="shorten-link">
@@ -105,8 +126,11 @@ async function shortUrl(url) {
         </h4>
         <button>Copy</button>
         `;
+		
+		
         allLinksDiv.appendChild(newLinkDiv);
 		shortItBtn.disabled = false;
+		shortItBtn.innerHTML = "Short It!";
         shortenLinksInput.push(saveUrl);
 		if (localStorage.getItem('storedLinksInput') !== null && shortenLinksInput.length >= 3) {
 			clearItBtn.style.visibility = 'visible';
@@ -115,14 +139,14 @@ async function shortUrl(url) {
 		}
 		
         localStorage.setItem('storedLinksInput' , JSON.stringify(shortenLinksInput));
-        inputUrl.value = '';
-
-		
+        inputUrl.value = '';		
+		copyURL();
 	} else {
 		errorSpan.innerHTML = 'This is an invalid link or a Shortened Link itself!';
     	errorSpan.style.visibility = 'visible';
 		inputUrl.classList.add('input-error');
 		shortItBtn.disabled = false;
+		shortItBtn.innerHTML = "Short It!";
 	}
   }  
 
