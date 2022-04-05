@@ -20,6 +20,11 @@ function copyURL() {
             inp.select();
             document.execCommand('copy', false);
             inp.remove();
+
+			copyItBtn[index].innerHTML = "Copied";
+            setInterval(() => {
+            copyItBtn[index].innerHTML = 'Copy'
+            }, 1500);
         })
     })
 }
